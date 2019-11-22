@@ -1,0 +1,16 @@
+.parrot
+
+# node & npm
+node_modules
+*.log
+lib
+*.tgz
+
+# test
+test-results
+
+# OS
+.DS_Store
+
+# IDE
+.idea
