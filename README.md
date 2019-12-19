@@ -1,10 +1,9 @@
-<h1>
-  <center>
-    <br />
-    <img src="./one-app-dev-proxy.png" alt="one-app-dev-proxy - One App" width="50%" />
-    <br /><br />
-  </center>
+<h1 align="center">
+  <img src='https://github.com/americanexpress/one-app-dev-proxy/raw/master/one-app-dev-proxy.png' alt="One App Dev Proxy - One Amex" width='50%'/>
 </h1>
+
+[![npm](https://img.shields.io/npm/v/@americanexpress/one-app-dev-proxy)](https://www.npmjs.com/package/@americanexpress/one-app-dev-proxy)
+[![Travis (.org) branch](https://img.shields.io/travis/americanexpress/one-app-dev-proxy/master)](https://travis-ci.org/americanexpress/one-app-dev-proxy)
 
 > Proxy requests to remote servers locally while also allowing for an [express](https://expressjs.com) middleware to be provided and applied to all requests.
 
