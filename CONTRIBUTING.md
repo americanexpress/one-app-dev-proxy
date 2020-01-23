@@ -1,4 +1,4 @@
-# Contributing to one-app-dev-cdn
+# Contributing to one-app-dev-proxy
 
 ✨ Thank you for taking the time to contribute to this project ✨
 
@@ -19,12 +19,12 @@ This project adheres to the American Express [Code of Conduct](./CODE_OF_CONDUCT
 
 ### Installation
 
-1. Fork the repository `one-app-dev-cdn` to your GitHub account.
+1. Fork the repository `one-app-dev-proxy` to your GitHub account.
 2. Afterwards run the following commands in your terminal
 
     ```bash
-    $ git clone https://github.com/<your-github-username>/one-app-dev-cdn
-    $ cd one-app-dev-cdn
+    $ git clone https://github.com/<your-github-username>/one-app-dev-proxy
+    $ cd one-app-dev-proxy
     ```
 
    > replace `your-github-username` with your github username
