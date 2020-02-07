@@ -51,7 +51,7 @@ Runs `eslint` **and** unit tests on the current branch.
 
 - **`npm posttest`**
 
-Runs linting on the current branch and checks that the commits follow [conventional commits](https://www.conventionalcommits.org/)
+Runs linting on the current branch, checks that the commits follow [conventional commits](https://www.conventionalcommits.org/) and verifies that the `package-lock.json` file includes public NPM registry URLs.
 
 ## Submitting a new feature
 
