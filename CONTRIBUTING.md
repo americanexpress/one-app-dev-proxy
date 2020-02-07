@@ -39,17 +39,17 @@ This project adheres to the American Express [Code of Conduct](./CODE_OF_CONDUCT
 
 #### Generating the build files
 
-`npm run build`
+- **`npm run build`**
 
 Builds the module into the `lib` folder.
 
 #### Running tests
 
-`npm test`
+- **`npm test`**
 
 Runs `eslint` **and** unit tests on the current branch.
 
-`npm posttest`
+- **`npm posttest`**
 
 Runs linting on the current branch and checks that the commits follow [conventional commits](https://www.conventionalcommits.org/)
 
@@ -98,7 +98,6 @@ If applicable, add screenshots or animated GIFs to help explain your problem.
 
 Provide the system information which is not limited to the below:
 
-- OS: [e.g. macOS, Windows]
 - Browser (if applies) [e.g. chrome, safari]
 - Version of one-app-dev-proxy: [e.g. 5.0.0]
 - Node version:[e.g 10.15.1]
