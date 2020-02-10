@@ -55,7 +55,7 @@ Runs linting on the current branch, checks that the commits follow [conventional
 
 ## Submitting a new feature
 
-When submitting a new feature request or enhancement of an existing features please review the following:-
+When submitting a new feature request or enhancement of an existing features please review the following:
 
 ### Is your feature request related to a problem
 
