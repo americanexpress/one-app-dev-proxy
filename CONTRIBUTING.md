@@ -32,7 +32,7 @@ This project adheres to the American Express [Code of Conduct](./CODE_OF_CONDUCT
 3. Install the dependencies by running
 
     ```bash
-    $ cd npm install
+    $ npm install
     ```
 
 4. You can now run any of these scripts from the root folder.
@@ -55,7 +55,7 @@ Runs linting on the current branch, checks that the commits follow [conventional
 
 ## Submitting a new feature
 
-When submitting a new feature request or enhancement of an existing features please review the following:-
+When submitting a new feature request or enhancement of an existing features please review the following:
 
 ### Is your feature request related to a problem
 
