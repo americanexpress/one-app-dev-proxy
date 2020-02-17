@@ -19,7 +19,6 @@ Want to get paid for your contributions to `one-app-dev-proxy`?
 * [Features](#-features)
 * [Usage](#-usage)
 * [API](#-api)
-* [Available Scripts](#-available-scripts)
 * [contributing](#-contributing)
 
 ## ✨ Features
@@ -80,15 +79,6 @@ Configuration object containing paths `one-app-dev-proxy` should serve and where
 and `NO_PROXY` / `no_proxy` environment variables and will use those accordingly when making
 requests to remotes provided in the `remotes` option.
 
-## 📜 Available Scripts
-
-**`npm run build`**
-
-Builds the module into the `build` folder.
-
-**`npm test`**
-
-Runs `eslint` **and** unit tests on the current branch.
 
 ## 🏆 Contributing
 
@@ -100,7 +90,7 @@ and to recipients of software distributed by American Express, You reserve all
 right, title, and interest, if any, in and to Your Contributions. Please [fill
 out the Agreement](https://cla-assistant.io/americanexpress/one-app-dev-proxy).
 
-Please feel free to open pull requests and see [CONTRIBUTING.md](./CONTRIBUTING.md) for commit formatting details.
+Please feel free to open pull requests and see [CONTRIBUTING.md](./CONTRIBUTING.md) to learn how to get started contributing.
 
 ## 🗝️ License
 
