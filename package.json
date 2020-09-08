@@ -8,7 +8,7 @@
     "test:unit": "jest",
     "test": "npm run test:unit && npm run test:lint && npm run test:git-history",
     "test:git-history": "commitlint --from origin/main --to HEAD",
-    "test:lockfile": "lockfile-lint -p package-lock.json -t npm -a npm -o https: -c -i",
+    "test:lockfile": "lockfile-lint --path yarn.lock --allowed-hosts registry.yarnpkg.com --validate-https",
     "build": "babel src --out-dir lib",
     "prepack": "npm run test && npm run build",
     "posttest": "npm run test:lockfile"

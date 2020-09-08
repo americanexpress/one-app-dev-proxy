@@ -1,4 +1,6 @@
+# misc
 .parrot
+package-lock.json
 
 # node & npm
 node_modules
