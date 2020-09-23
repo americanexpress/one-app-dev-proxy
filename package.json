@@ -68,6 +68,7 @@
     "@semantic-release/changelog": "^5.0.1",
     "@semantic-release/commit-analyzer": "^8.0.1",
     "@semantic-release/git": "^9.0.0",
+    "@semantic-release/github": "^7.1.1",
     "@semantic-release/npm": "^7.0.6",
     "@semantic-release/release-notes-generator": "^9.0.1",
     "amex-jest-preset": "^3.0.0",
@@ -77,8 +78,8 @@
     "eslint-config-amex": "^11.1.0",
     "husky": "^3.0.9",
     "jest": "^19.0.2",
-    "lockfile-lint": "^3.0.8",
-    "semantic-release": "^17.1.1"
+    "lockfile-lint": "^4.3.7",
+    "semantic-release": "^17.1.2"
   },
   "release": {
     "branches": [
@@ -102,8 +103,7 @@
       "@semantic-release/npm",
       "@semantic-release/git",
       "@semantic-release/github"
-    ],
-    "branch": "master"
+    ]
   },
   "husky": {
     "hooks": {
