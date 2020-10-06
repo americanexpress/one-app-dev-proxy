@@ -23,7 +23,7 @@ jest.mock('request');
 jest.mock('chalk', () => ({ red: jest.fn((s) => `<red>${s}</red>`) }));
 
 describe('setRemoteUrl', () => {
-  it('should build the remote URL for the request and attach it to the request', (done) => {
+  it('should build the remote URL for the request and attach it to the request', () => new Promise((done) => {
     const remoteBaseUrl = 'https://my-app.com';
     const req = {
       originalUrl: '/api/test',
@@ -34,7 +34,7 @@ describe('setRemoteUrl', () => {
       done();
     };
     setRemoteUrl(remoteBaseUrl)(req, undefined, next);
-  });
+  }));
 });
 
 describe('pipe', () => {
