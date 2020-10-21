@@ -75,7 +75,7 @@
     "babel-cli": "^6.24.1",
     "babel-preset-amex": "^1.0.0",
     "eslint": "^6.5.0",
-    "eslint-config-amex": "^11.1.0",
+    "eslint-config-amex": "^13.1.0",
     "husky": "^3.0.9",
     "jest": "^19.0.2",
     "lockfile-lint": "^4.3.7",
