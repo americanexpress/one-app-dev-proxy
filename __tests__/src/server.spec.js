@@ -72,6 +72,15 @@ describe('server', () => {
       expect(app.use).toHaveBeenCalledWith('/another-api', expect.any(Function));
     });
 
+    it('allows remote to have / prefix', () => {
+      const app = createServer({
+        remotes: {
+          '/another-api': 'https://other-api.com',
+        },
+      });
+      expect(app.use).toHaveBeenCalledWith('/another-api', expect.any(Function));
+    });
+
     it('should apply middleware if useMiddleware option is true and middleware path is defined', () => {
       const pathToMiddleware = 'test/dev/';
       const app = createServer({ useMiddleware: true, pathToMiddleware });
