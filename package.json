@@ -1,6 +1,6 @@
 {
   "name": "@americanexpress/one-app-dev-proxy",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Proxy requests to remote servers locally while also allowing for an express middleware to be provided and applied to all requests",
   "main": "lib/index.js",
   "scripts": {
