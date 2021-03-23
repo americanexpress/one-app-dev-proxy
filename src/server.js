@@ -38,7 +38,8 @@ export default function createServer({
     applyCustomMiddleware(app, pathToMiddleware);
   } else {
     Object.keys(remotes).forEach((remote) => {
-      app.use(`/${remote}`, setRemoteUrl(remotes[remote]));
+      const path = remote[0] === '/' ? remote : `/${remote}`;
+      app.use(path, setRemoteUrl(remotes[remote]));
     });
     app.use(pipe());
   }
