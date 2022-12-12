@@ -165,7 +165,9 @@ describe('Set Middleware Utils', () => {
 
     it('should link .dev/middleware directory for Windows devices', async () => {
       const originalPlatform = process.platform;
-      process.platform = 'win32';
+      Object.defineProperty(process, 'platform', {
+        value: 'win32',
+      });
       const { createSymLinks } = load();
       try {
         await createSymLinks();
@@ -174,7 +176,9 @@ describe('Set Middleware Utils', () => {
       }
       expect(mockFs.linkSync).toHaveBeenCalled();
       expect(mockFs.symlinkSync).not.toHaveBeenCalled();
-      process.platform = originalPlatform;
+      Object.defineProperty(process, 'platform', {
+        value: originalPlatform,
+      });
     });
   });
 

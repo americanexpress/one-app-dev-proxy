@@ -49,12 +49,15 @@ describe('pipe', () => {
   beforeEach(() => {
     request.__resetRequests(); // eslint-disable-line no-underscore-dangle
     request.mockClear();
+    // jest.resetAllMocks();
     req.pipe.mockClear();
+    jest.clearAllMocks();
   });
 
   it('should delete the headers origin and referer', () => {
     pipe(false)(req, res);
-    expect(req).toMatchSnapshot();
+    expect(req.headers.origin).toBe(undefined);
+    expect(req.headers.referer).toBe(undefined);
   });
 
   it('should pipe request', () => {
@@ -70,7 +73,7 @@ describe('pipe', () => {
   });
 
   it('should show a message when there is a socket error', () => {
-    jest.spyOn(console, 'error');
+    console.error = jest.fn();
     pipe(false)(req, res);
     const reqInstance = request.__getRequest(0); // eslint-disable-line no-underscore-dangle
     reqInstance.emit('error', new Error('test error like socket timeout'));

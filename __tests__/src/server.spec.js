@@ -17,7 +17,7 @@ import applyCustomMiddleware from '../../src/applyCustomMiddleware';
 import createServer from '../../src/server';
 
 jest.mock('express', () => jest.fn(() => ({ use: jest.fn(), isExpressServer: true })));
-jest.mock('cors', () => jest.fn(require.requireActual('cors')));
+jest.mock('cors', () => jest.fn(jest.requireActual('cors')));
 jest.mock('../../src/applyCustomMiddleware');
 
 describe('server', () => {
