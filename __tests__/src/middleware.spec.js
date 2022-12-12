@@ -49,9 +49,7 @@ describe('pipe', () => {
   beforeEach(() => {
     request.__resetRequests(); // eslint-disable-line no-underscore-dangle
     request.mockClear();
-    // jest.resetAllMocks();
     req.pipe.mockClear();
-    jest.clearAllMocks();
   });
 
   it('should delete the headers origin and referer', () => {
