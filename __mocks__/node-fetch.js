@@ -14,13 +14,14 @@
 
 const instances = [];
 
-const request = jest.fn((config) => {
+const fetch = jest.fn((url,config) => {
   const reqInstance = {
     mockRequest: true,
     config,
     events: {},
   };
-  reqInstance.on = jest.fn((event, cb) => {
+  reqInstance.catch = jest.fn((cb) => {
+    const event = 'error';
     reqInstance.events[event] = reqInstance.events[event] || [];
     reqInstance.events[event].push(cb);
     return reqInstance;
@@ -28,14 +29,14 @@ const request = jest.fn((config) => {
   reqInstance.emit = jest.fn((event, data) => {
     (reqInstance.events[event] || []).forEach((cb) => cb(data));
   });
-  reqInstance.pipe = jest.fn((s) => s);
+  reqInstance.pipe = jest.fn((s) => Promise.resolve(s));
   instances.push(reqInstance);
   return reqInstance;
 });
 
-request.__resetRequests = () => { // eslint-disable-line no-underscore-dangle
+fetch.__resetRequests = () => { // eslint-disable-line no-underscore-dangle
   instances.splice(0, Infinity);
 };
-request.__getRequest = (n) => instances[n]; // eslint-disable-line no-underscore-dangle
+fetch.__getRequest = (n) => Promise.resolve(instances[n]); // eslint-disable-line no-underscore-dangle
 
-module.exports = request;
+module.exports = fetch;
