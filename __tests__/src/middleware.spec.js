@@ -58,22 +58,22 @@ describe('pipe', () => {
     expect(req.headers.referer).toBe(undefined);
   });
 
-  it('should pipe request', async() => {
+  it('should pipe request', async () => {
     pipe(false)(req, res);
-   const reqInstance = await fetch.__getRequest(0); // eslint-disable-line no-underscore-dangle
-   // expect(req.pipe).toBeCalledWith('')
-   //expect(reqInstance).toBe('')
-   //expect(req.pipe).toHaveBeenCalled()
+    const reqInstance = await fetch.__getRequest(0); // eslint-disable-line no-underscore-dangle
+    // expect(req.pipe).toBeCalledWith('')
+    // expect(reqInstance).toBe('')
+    // expect(req.pipe).toHaveBeenCalled()
     expect(req.pipe).toHaveBeenCalledWith(reqInstance);
   });
 
-  it('should pipe response', async() => {
+  it('should pipe response', async () => {
     pipe(false)(req, res);
     const reqInstance = await fetch.__getRequest(0); // eslint-disable-line no-underscore-dangle
     expect(reqInstance.pipe).toBeCalledWith(res);
   });
 
-  it('should show a message when there is a socket error', async() => {
+  it('should show a message when there is a socket error', async () => {
     console.error = jest.fn();
     pipe(false)(req, res);
     const reqInstance = await fetch.__getRequest(0); // eslint-disable-line no-underscore-dangle

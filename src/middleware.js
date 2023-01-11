@@ -21,7 +21,7 @@ export const setRemoteUrl = (remoteBaseUrl) => (req, res, next) => {
   next();
 };
 
-export const pipe = () => async(req, res) => {
+export const pipe = () => async (req, res) => {
   // avoid copying the request
   delete req.headers.origin;
   delete req.headers.referer;
@@ -31,13 +31,12 @@ export const pipe = () => async(req, res) => {
     rejectUnauthorized: false,
   };
 
-  
   return req
     .pipe(
-      await fetch(req.remoteUrl,config)
-      .catch((err) => {
-        console.error(`${chalk.red(`request to ${req.remoteUrl} failed:`)} ${err.message}`);
-      })
+      await fetch(req.remoteUrl, config)
+        .catch((err) => {
+          console.error(`${chalk.red(`request to ${req.remoteUrl} failed:`)} ${err.message}`);
+        })
     )
     .pipe(res);
 };

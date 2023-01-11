@@ -14,7 +14,7 @@
 
 const instances = [];
 
-const fetch = jest.fn((url,config) => {
+const fetch = jest.fn((url, config) => {
   const reqInstance = {
     mockRequest: true,
     config,
@@ -37,6 +37,6 @@ const fetch = jest.fn((url,config) => {
 fetch.__resetRequests = () => { // eslint-disable-line no-underscore-dangle
   instances.splice(0, Infinity);
 };
-fetch.__getRequest = (n) => Promise.resolve(instances[n]); // eslint-disable-line no-underscore-dangle
+fetch.__getRequest = (n) => Promise.resolve(instances[n]); // eslint-disable-line no-underscore-dangle, max-len
 
 module.exports = fetch;
