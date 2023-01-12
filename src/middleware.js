@@ -13,7 +13,7 @@
  */
 
 /* eslint-disable no-param-reassign */
-import request from 'request';
+import fetch from 'node-fetch';
 import chalk from 'chalk';
 
 export const setRemoteUrl = (remoteBaseUrl) => (req, res, next) => {
@@ -21,21 +21,20 @@ export const setRemoteUrl = (remoteBaseUrl) => (req, res, next) => {
   next();
 };
 
-export const pipe = () => (req, res) => {
+export const pipe = () => async (req, res) => {
   // avoid copying the request
   delete req.headers.origin;
   delete req.headers.referer;
 
   const config = {
     method: req.method,
-    url: req.remoteUrl,
     rejectUnauthorized: false,
   };
 
   return req
     .pipe(
-      request(config)
-        .on('error', (err) => {
+      await fetch(req.remoteUrl, config)
+        .catch((err) => {
           console.error(`${chalk.red(`request to ${req.remoteUrl} failed:`)} ${err.message}`);
         })
     )
