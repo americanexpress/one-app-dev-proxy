@@ -71,7 +71,7 @@ describe('pipe', () => {
   });
 
   it('should show a message when there is a socket error', () => {
-    console.error = jest.fn();
+    jest.spyOn(console, 'error').mockImplementation(() => 0);
     pipe(false)(req, res);
     const reqInstance = request.__getRequest(0); // eslint-disable-line no-underscore-dangle
     reqInstance.emit('error', new Error('test error like socket timeout'));
