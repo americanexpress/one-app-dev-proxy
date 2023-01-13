@@ -61,9 +61,6 @@ describe('pipe', () => {
   it('should pipe request', async () => {
     pipe(false)(req, res);
     const reqInstance = await fetch.__getRequest(0); // eslint-disable-line no-underscore-dangle
-    // expect(req.pipe).toBeCalledWith('')
-    // expect(reqInstance).toBe('')
-    // expect(req.pipe).toHaveBeenCalled()
     expect(req.pipe).toHaveBeenCalledWith(reqInstance);
   });
 
@@ -74,7 +71,7 @@ describe('pipe', () => {
   });
 
   it('should show a message when there is a socket error', async () => {
-    console.error = jest.fn();
+    jest.spyOn(console, 'error').mockImplementation(() => 0);
     pipe(false)(req, res);
     const reqInstance = await fetch.__getRequest(0); // eslint-disable-line no-underscore-dangle
     reqInstance.emit('error', new Error('test error like socket timeout'));
