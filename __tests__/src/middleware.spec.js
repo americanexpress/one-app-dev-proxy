@@ -54,7 +54,8 @@ describe('pipe', () => {
 
   it('should delete the headers origin and referer', () => {
     pipe(false)(req, res);
-    expect(req).toMatchSnapshot();
+    expect(req.headers.origin).toBe(undefined);
+    expect(req.headers.referer).toBe(undefined);
   });
 
   it('should pipe request', () => {
@@ -70,7 +71,7 @@ describe('pipe', () => {
   });
 
   it('should show a message when there is a socket error', () => {
-    jest.spyOn(console, 'error');
+    jest.spyOn(console, 'error').mockImplementation(() => 0);
     pipe(false)(req, res);
     const reqInstance = request.__getRequest(0); // eslint-disable-line no-underscore-dangle
     reqInstance.emit('error', new Error('test error like socket timeout'));

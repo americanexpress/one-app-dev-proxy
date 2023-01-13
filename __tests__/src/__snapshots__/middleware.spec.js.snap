@@ -1,16 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`pipe should delete the headers origin and referer 1`] = `
-Object {
-  "headers": Object {},
-  "method": "POST",
-  "pipe": [Function],
-  "remoteUrl": "https://api.com/v1/data",
-}
-`;
-
 exports[`pipe should show a message when there is a socket error 1`] = `
-Array [
+[
   "<red>request to https://api.com/v1/data failed:</red> test error like socket timeout",
 ]
 `;
