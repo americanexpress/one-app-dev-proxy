@@ -12,15 +12,15 @@
  * under the License.
  */
 
-import request from 'request';
+import fetch from 'node-fetch';
 import chalk from 'chalk';
 import {
   setRemoteUrl,
   pipe,
 } from '../../src/middleware';
 
-jest.mock('request');
 jest.mock('chalk', () => ({ red: jest.fn((s) => `<red>${s}</red>`) }));
+jest.mock('node-fetch');
 
 describe('setRemoteUrl', () => {
   it('should build the remote URL for the request and attach it to the request', () => new Promise((done) => {
@@ -47,8 +47,8 @@ describe('pipe', () => {
   const res = { data: 'data' };
 
   beforeEach(() => {
-    request.__resetRequests(); // eslint-disable-line no-underscore-dangle
-    request.mockClear();
+    fetch.__resetRequests(); // eslint-disable-line no-underscore-dangle
+    fetch.mockClear();
     req.pipe.mockClear();
   });
 
@@ -58,22 +58,22 @@ describe('pipe', () => {
     expect(req.headers.referer).toBe(undefined);
   });
 
-  it('should pipe request', () => {
+  it('should pipe request', async () => {
     pipe(false)(req, res);
-    const reqInstance = request.__getRequest(0); // eslint-disable-line no-underscore-dangle
-    expect(req.pipe).toBeCalledWith(reqInstance);
+    const reqInstance = await fetch.__getRequest(0); // eslint-disable-line no-underscore-dangle
+    expect(req.pipe).toHaveBeenCalledWith(reqInstance);
   });
 
-  it('should pipe response', () => {
+  it('should pipe response', async () => {
     pipe(false)(req, res);
-    const reqInstance = request.__getRequest(0); // eslint-disable-line no-underscore-dangle
+    const reqInstance = await fetch.__getRequest(0); // eslint-disable-line no-underscore-dangle
     expect(reqInstance.pipe).toBeCalledWith(res);
   });
 
-  it('should show a message when there is a socket error', () => {
+  it('should show a message when there is a socket error', async () => {
     jest.spyOn(console, 'error').mockImplementation(() => 0);
     pipe(false)(req, res);
-    const reqInstance = request.__getRequest(0); // eslint-disable-line no-underscore-dangle
+    const reqInstance = await fetch.__getRequest(0); // eslint-disable-line no-underscore-dangle
     reqInstance.emit('error', new Error('test error like socket timeout'));
     expect(chalk.red).toHaveBeenCalled();
     expect(console.error).toHaveBeenCalled();
