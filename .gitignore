@@ -10,7 +10,7 @@ lib
 
 # test
 test-results
-
+.jest-cache
 # OS
 .DS_Store
 
