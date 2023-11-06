@@ -47,7 +47,8 @@ describe('pipe', () => {
   const res = { data: 'data' };
 
   beforeEach(() => {
-    fetch.__resetRequests(); // eslint-disable-line no-underscore-dangle
+    // eslint-disable-next-line no-underscore-dangle -- property contains underscore
+    fetch.__resetRequests();
     fetch.mockClear();
     req.pipe.mockClear();
   });
@@ -60,20 +61,23 @@ describe('pipe', () => {
 
   it('should pipe request', async () => {
     pipe(false)(req, res);
-    const reqInstance = await fetch.__getRequest(0); // eslint-disable-line no-underscore-dangle
+    // eslint-disable-next-line no-underscore-dangle -- property contains underscore
+    const reqInstance = await fetch.__getRequest(0);
     expect(req.pipe).toHaveBeenCalledWith(reqInstance);
   });
 
   it('should pipe response', async () => {
     pipe(false)(req, res);
-    const reqInstance = await fetch.__getRequest(0); // eslint-disable-line no-underscore-dangle
-    expect(reqInstance.pipe).toBeCalledWith(res);
+    // eslint-disable-next-line no-underscore-dangle -- property contains underscore
+    const reqInstance = await fetch.__getRequest(0);
+    expect(reqInstance.pipe).toHaveBeenCalledWith(res);
   });
 
   it('should show a message when there is a socket error', async () => {
     jest.spyOn(console, 'error').mockImplementation(() => 0);
     pipe(false)(req, res);
-    const reqInstance = await fetch.__getRequest(0); // eslint-disable-line no-underscore-dangle
+    // eslint-disable-next-line no-underscore-dangle -- property contains underscore
+    const reqInstance = await fetch.__getRequest(0);
     reqInstance.emit('error', new Error('test error like socket timeout'));
     expect(chalk.red).toHaveBeenCalled();
     expect(console.error).toHaveBeenCalled();

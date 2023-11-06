@@ -7,9 +7,9 @@ node_modules
 *.log
 lib
 *.tgz
-
 # test
 test-results
+.jest-cache
 
 # OS
 .DS_Store

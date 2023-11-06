@@ -12,7 +12,6 @@
  * under the License.
  */
 
-/* eslint-disable no-param-reassign */
 import fetch from 'node-fetch';
 import chalk from 'chalk';
 
