@@ -33,10 +33,10 @@ const fetch = jest.fn((url, config) => {
   instances.push(reqInstance);
   return reqInstance;
 });
-
-fetch.__resetRequests = () => { // eslint-disable-line no-underscore-dangle
-  instances.splice(0, Infinity);
+// eslint-disable-next-line no-underscore-dangle -- this is a mock
+fetch.__resetRequests = () => {
+  instances.splice(0, Number.POSITIVE_INFINITY);
 };
-fetch.__getRequest = (n) => Promise.resolve(instances[n]); // eslint-disable-line no-underscore-dangle, max-len
-
+// eslint-disable-next-line no-underscore-dangle -- this is a mock
+fetch.__getRequest = (n) => Promise.resolve(instances[n]);
 module.exports = fetch;

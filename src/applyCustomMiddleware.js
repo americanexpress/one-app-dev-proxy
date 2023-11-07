@@ -17,7 +17,7 @@ import chalk from 'chalk';
 export default function applyCustomMiddleware(app, pathToMiddleware) {
   try {
     console.log('Applying custom middleware...');
-    // eslint-disable-next-line global-require, import/no-dynamic-require
+    // eslint-disable-next-line global-require, import/no-dynamic-require -- dynamic require is needed here
     const customMiddlewareConfig = require(pathToMiddleware);
 
     if (typeof customMiddlewareConfig === 'function') {
