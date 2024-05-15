@@ -1,18 +1,15 @@
 <h1 align="center">
+
+  [One App is now InnerSource](https://github.com/americanexpress/one-app/issues/1393)
+
+  <hr/>
+
   <img src='https://github.com/americanexpress/one-app-dev-proxy/raw/main/one-app-dev-proxy.png' alt="One App Dev Proxy - One Amex" width='50%'/>
 </h1>
 
 [![npm](https://img.shields.io/npm/v/@americanexpress/one-app-dev-proxy)](https://www.npmjs.com/package/@americanexpress/one-app-dev-proxy)
-![Health Check](https://github.com/americanexpress/one-app-dev-proxy/workflows/Health%20Check/badge.svg)
 
 > Proxy requests to remote servers locally while also allowing for an [express](https://expressjs.com) middleware to be provided and applied to all requests.
-
-
-## 👩‍💻 Hiring 👨‍💻
-
-Want to get paid for your contributions to `one-app-dev-proxy`?
-> Send your resume to oneamex.careers@aexp.com
-
 
 ## 📖 Table of Contents
 
